@@ -1,4 +1,4 @@
-import { createRootRoute } from '@tanstack/react-router'
+import { Outlet, createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       { property: 'og:title', content: "Jithin's Wedding Invitation" },
       { property: 'og:description', content: 'You are cordially invited to celebrate our special day with us!' },
       { property: 'og:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' },
-      { property: 'og:url', content: 'https://jithin-wedding-invitation.vercel.app' },
+      { property: 'og:url', content: 'https://jithin-wedding-invitation.vercel.app/' },
 
       // 3. Optional Twitter Card Tags
       { name: 'twitter:card', content: 'summary_large_image' },
@@ -24,4 +24,22 @@ export const Route = createRootRoute({
       { name: 'twitter:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' },
     ],
   }),
+  // ⚠️ ADD THIS COMPONENT LINK: Tell the router to render the HTML structure
+  component: RootComponent, 
 })
+
+// ⚠️ ADD THIS FUNCTION: This physically renders the tags into the document
+function RootComponent() {
+  return (
+    <html lang="en">
+      <head>
+        {/* This specific tag converts your meta array up top into real HTML elements */}
+        <HeadContent />
+      </head>
+      <body>
+        <Outlet />
+        <Scripts />
+      </body>
+    </html>
+  )
+}
