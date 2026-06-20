@@ -1,4 +1,5 @@
-import { Outlet, createRootRoute, Meta, Scripts } from '@tanstack/react-router'
+import { Outlet, createRootRoute } from '@tanstack/react-router'
+import { Meta, Scripts } from '@tanstack/start' // ⚠️ FIX: Meta and Scripts come from @tanstack/start
 
 export const Route = createRootRoute({
   head: () => ({
@@ -10,11 +11,11 @@ export const Route = createRootRoute({
       { title: "Jithin's Wedding Invitation" },
       { name: 'description', content: 'You are cordially invited to celebrate our special day with us!' },
 
-      // 2. Open Graph (OG) Tags for WhatsApp & Facebook (Large Image Card setup)
+      // 2. Open Graph (OG) Tags for WhatsApp & Facebook
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: "Jithin's Wedding Invitation" },
       { property: 'og:description', content: 'You are cordially invited to celebrate our special day with us!' },
-      { property: 'og:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' }, // Double check this matches your compressed png file!
+      { property: 'og:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
       { property: 'og:image:type', content: 'image/png' },
@@ -34,7 +35,7 @@ function RootComponent() {
   return (
     <html lang="en">
       <head>
-        {/* ⚠️ FIX: The Meta component is what parses the head metadata array defined above */}
+        {/* Generates all meta tags seamlessly from the array above */}
         <Meta />
       </head>
       <body>
