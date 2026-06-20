@@ -3,6 +3,7 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
+import { nitro } from 'nitro/vite' // <-- 1. IMPORT NITRO VITE PLUGIN
 
 const config = defineConfig({
   plugins: [
@@ -10,12 +11,8 @@ const config = defineConfig({
       projects: ['./tsconfig.json'],
     }),
     tailwindcss(),
-    tanstackStart({
-      prerender: {
-        enabled: true, // Forces TanStack Start to output a static site
-        crawlLinks: true,
-      },
-    }),
+    tanstackStart(), // <-- 2. REMOVE THE PRERENDER OBJECT block
+    nitro(),         // <-- 3. ADD THE NITRO PLUGIN HERE
     viteReact(),
   ],
 })
