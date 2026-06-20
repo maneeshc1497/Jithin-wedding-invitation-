@@ -1,40 +1,35 @@
-import { Outlet, createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
+import { Outlet, createRootRoute, Meta, Title, Scripts } from '@tanstack/react-router'
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      
-      // 1. Main Title & Description
-      { title: "Jithin's Wedding Invitation" },
-      { name: 'description', content: 'You are cordially invited to celebrate our special day with us!' },
-
-      // 2. Open Graph (OG) Tags for WhatsApp & Facebook
-      { property: 'og:type', content: 'website' },
-      { property: 'og:title', content: "Jithin's Wedding Invitation" },
-      { property: 'og:description', content: 'You are cordially invited to celebrate our special day with us!' },
-      { property: 'og:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.jpg' },
-      { property: 'og:url', content: 'https://jithin-wedding-invitation.vercel.app/' },
-
-      // 3. Optional Twitter Card Tags
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: "Jithin's Wedding Invitation" },
-      { name: 'twitter:description', content: 'You are cordially invited to celebrate our special day with us!' },
-      { name: 'twitter:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.jpg' },
-    ],
-  }),
-  // ⚠️ ADD THIS COMPONENT LINK: Tell the router to render the HTML structure
-  component: RootComponent, 
+  component: RootComponent,
 })
 
-// ⚠️ ADD THIS FUNCTION: This physically renders the tags into the document
 function RootComponent() {
   return (
     <html lang="en">
       <head>
-        {/* This specific tag converts your meta array up top into real HTML elements */}
-        <HeadContent />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <Title>Jithin & Sanha's Wedding Invitation</Title>
+        <meta name="description" content="You are cordially invited to celebrate our special day with us!" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Jithin & Sanha's Wedding Invitation" />
+        <meta property="og:description" content="You are cordially invited to celebrate our special day with us!" />
+        <meta property="og:image" content="https://jithin-wedding-invitation.vercel.app/preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:url" content="https://jithin-wedding-invitation.vercel.app/" />
+
+        {/* ⚠️ CRUCIAL CHANGE HERE: Make sure this says summary_large_image */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Jithin & Sanha's Wedding Invitation" />
+        <meta name="twitter:description" content="You are cordially invited to celebrate our special day with us!" />
+        <meta name="twitter:image" content="https://jithin-wedding-invitation.vercel.app/preview.png" />
+
+        <Meta />
       </head>
       <body>
         <Outlet />
