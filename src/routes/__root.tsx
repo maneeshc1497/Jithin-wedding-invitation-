@@ -1,34 +1,40 @@
-import { Outlet, createRootRoute, Meta, Title, Scripts } from '@tanstack/react-router'
+import { Outlet, createRootRoute, Meta, Scripts } from '@tanstack/react-router'
 
 export const Route = createRootRoute({
-  component: RootComponent,
+  head: () => ({
+    meta: [
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      
+      // 1. Main Title & Description
+      { title: "Jithin's Wedding Invitation" },
+      { name: 'description', content: 'You are cordially invited to celebrate our special day with us!' },
+
+      // 2. Open Graph (OG) Tags for WhatsApp & Facebook (Large Image Card setup)
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: "Jithin's Wedding Invitation" },
+      { property: 'og:description', content: 'You are cordially invited to celebrate our special day with us!' },
+      { property: 'og:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' }, // Double check this matches your compressed png file!
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:type', content: 'image/png' },
+      { property: 'og:url', content: 'https://jithin-wedding-invitation.vercel.app/' },
+
+      // 3. Twitter Card Tags (Forces the full layout banner above text)
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: "Jithin's Wedding Invitation" },
+      { name: 'twitter:description', content: 'You are cordially invited to celebrate our special day with us!' },
+      { name: 'twitter:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' },
+    ],
+  }),
+  component: RootComponent, 
 })
 
 function RootComponent() {
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-        <Title>Jithin & Sanha's Wedding Invitation</Title>
-        <meta name="description" content="You are cordially invited to celebrate our special day with us!" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Jithin & Sanha's Wedding Invitation" />
-        <meta property="og:description" content="You are cordially invited to celebrate our special day with us!" />
-        <meta property="og:image" content="https://jithin-wedding-invitation.vercel.app/preview.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:url" content="https://jithin-wedding-invitation.vercel.app/" />
-
-        {/* ⚠️ CRUCIAL CHANGE HERE: Make sure this says summary_large_image */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Jithin & Sanha's Wedding Invitation" />
-        <meta name="twitter:description" content="You are cordially invited to celebrate our special day with us!" />
-        <meta name="twitter:image" content="https://jithin-wedding-invitation.vercel.app/preview.png" />
-
+        {/* ⚠️ FIX: The Meta component is what parses the head metadata array defined above */}
         <Meta />
       </head>
       <body>
