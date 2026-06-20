@@ -14,7 +14,7 @@ export const Route = createRootRoute({
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: "Jithin & Sanha's Wedding Invitation" },
       { property: 'og:description', content: 'You are cordially invited to celebrate our special day with us!' },
-      { property: 'og:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' }, // Ensure this points to the compressed .png in your public folder!
+      { property: 'og:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.jpg' }, // Ensure this points to the compressed .png in your public folder!
       
       // ⚠️ ADDED THESE 3 LINES: This forces WhatsApp to give the image a full-width top block
       { property: 'og:image:width', content: '1200' },
@@ -26,7 +26,7 @@ export const Route = createRootRoute({
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: "Jithin & Sanha's Wedding Invitation" },
       { name: 'twitter:description', content: 'You are cordially invited to celebrate our special day with us!' },
-      { name: 'twitter:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' },
+      { name: 'twitter:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.jpg' },
     ],
   }),
   component: RootComponent, 
