@@ -622,6 +622,41 @@ export default function WeddingInvitation() {
         color:var(--gold-pl);
         text-transform:uppercase;
         }
+        /* Mobile Event Cards Layout */
+        @media (max-width: 640px) {
+
+          .event-grid {
+            grid-template-columns: 1fr;
+            width: 100%;
+            gap: 18px;
+            margin-top: 35px;
+          }
+
+          .event-card {
+            width: 100%;
+            padding: 24px 18px;
+          }
+
+          .event-value {
+            font-size: 1.15rem;
+            line-height: 1.5;
+          }
+
+          .event-sub {
+            font-size: 0.9rem;
+          }
+
+          .event-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+          }
+
+          .event-action {
+            margin-top: 15px;
+            padding: 8px 16px;
+          }
+        }
       `}</style>
 
       {/* HERO */}
