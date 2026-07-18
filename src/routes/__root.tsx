@@ -7,14 +7,14 @@ export const Route = createRootRoute({
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       
       // 1. Fixed Title & Description Format
-      { name: 'title', content: "Jithin & Sanha's Wedding Invitation" },
+      { name: 'title', content: "Jithin & Safna's Wedding Invitation" },
       { name: 'description', content: 'You are cordially invited to celebrate our special day with us!' },
 
       // 2. Open Graph (OG) Tags for WhatsApp & Facebook
       { property: 'og:type', content: 'website' },
-      { property: 'og:title', content: "Jithin & Sanha's Wedding Invitation" },
+      { property: 'og:title', content: "Jithin & Safna's Wedding Invitation" },
       { property: 'og:description', content: 'You are cordially invited to celebrate our special day with us!' },
-      { property: 'og:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.jpg' }, // Ensure this points to the compressed .png in your public folder!
+      { property: 'og:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' }, // Ensure this points to the compressed .png in your public folder!
       
       // ⚠️ ADDED THESE 3 LINES: This forces WhatsApp to give the image a full-width top block
       { property: 'og:image:width', content: '1200' },
@@ -24,9 +24,9 @@ export const Route = createRootRoute({
 
       // 3. Twitter Card Tags (Tells the UI to span the full width)
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: "Jithin & Sanha's Wedding Invitation" },
+      { name: 'twitter:title', content: "Jithin & Safna's Wedding Invitation" },
       { name: 'twitter:description', content: 'You are cordially invited to celebrate our special day with us!' },
-      { name: 'twitter:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.jpg' },
+      { name: 'twitter:image', content: 'https://jithin-wedding-invitation.vercel.app/preview.png' },
     ],
   }),
   component: RootComponent, 
