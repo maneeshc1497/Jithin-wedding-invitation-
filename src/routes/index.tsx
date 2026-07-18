@@ -344,6 +344,33 @@ export default function WeddingInvitation() {
         .dt-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.92rem; color: var(--txt-m); opacity: 0.68; margin-top: 0.25rem; }
 
         /* ── FAMILIES ── */
+        .parents-grid{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:35px;
+        margin-top:45px;
+        }
+
+        .parent-card{
+        background:white;
+        border:1px solid rgba(201,168,76,.28);
+        padding:40px 30px;
+        text-align:center;
+        transition:.3s;
+        }
+
+        .parent-card:hover{
+        transform:translateY(-4px);
+        box-shadow:0 10px 30px rgba(74,14,26,.08);
+        }
+
+        @media(max-width:640px){
+
+        .parents-grid{
+        grid-template-columns:1fr;
+        }
+
+        }
         .fam-sec { background: var(--ivory); }
         .fam-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: center; }
         .fam-card {
@@ -415,6 +442,17 @@ export default function WeddingInvitation() {
           .fam-grid { grid-template-columns: 1fr; }
           .fam-div { flex-direction: row; }
           .and-t { font-size: 2rem; }
+          .event-grid{
+              grid-template-columns:1fr;
+          }
+
+          .event-card{
+              padding:22px 18px;
+          }
+
+          .event-value{
+              font-size:1.1rem;
+          }
         }
           /* ── NEW DYNAMIC RSVP SECTIONS ── */
         .rsvp-sec { background: var(--ivory); }
@@ -452,6 +490,129 @@ export default function WeddingInvitation() {
         .rsvp-msg { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; line-height: 1.7; }
         .rsvp-msg-ar { font-family: 'Amiri', serif; font-size: 1.6rem; color: var(--gold); margin-top: 0.75rem; letter-spacing: 0px; }
         .animate-fade { animation: fU 0.4s ease both; }
+        
+        
+        
+        .event-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+            max-width:900px;
+            margin:45px auto 30px;
+        }
+
+        .event-card{
+            background:rgba(255,255,255,.08);
+            border:1.5px solid rgba(201,168,76,.45);
+            backdrop-filter:blur(8px);
+            padding:28px 22px;
+            text-align:center;
+            transition:.35s;
+        }
+
+        .event-card:hover{
+            transform:translateY(-5px);
+            box-shadow:0 12px 35px rgba(0,0,0,.25);
+        }
+
+        .event-icon{
+            width:56px;
+            height:56px;
+            margin:0 auto 18px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:rgba(201,168,76,.12);
+            color:var(--gold-lt);
+            border:1px solid rgba(201,168,76,.35);
+        }
+
+        .event-label{
+            font-family:'Cinzel Decorative';
+            font-size:.68rem;
+            letter-spacing:.35em;
+            color:var(--gold);
+            margin-bottom:10px;
+        }
+
+        .event-value{
+            font-family:'Cormorant Garamond';
+            font-size:1.25rem;
+            color:var(--gold-pl);
+            font-weight:600;
+            line-height:1.4;
+        }
+
+        .event-sub{
+            margin-top:8px;
+            font-family:'Cormorant Garamond';
+            font-style:italic;
+            font-size:.9rem;
+            color:rgba(255,255,255,.75);
+            line-height:1.5;
+        }
+        .event-action{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:6px;
+
+            margin-top:14px;
+            padding:7px 14px;
+
+            border:1px solid rgba(201,168,76,.45);
+            border-radius:50px;
+
+            background:rgba(201,168,76,.08);
+
+            color:var(--gold-lt);
+
+            font-family:'Cormorant Garamond';
+            font-size:.85rem;
+            font-weight:600;
+
+            text-decoration:none;
+            cursor:pointer;
+            transition:.3s;
+
+            width:auto;
+        }
+
+        .event-action:hover{
+            background:rgba(201,168,76,.18);
+            border-color:var(--gold);
+            transform:translateY(-2px);
+        }
+
+        .mini-countdown{
+        display:flex;
+        justify-content:center;
+        gap:12px;
+        margin-top:35px;
+        flex-wrap:wrap;
+        }
+
+        .mini-card{
+        width:70px;
+        padding:12px 6px;
+        background:rgba(201,168,76,.1);
+        border:1px solid rgba(201,168,76,.35);
+        text-align:center;
+        }
+
+        .mini-num{
+        font-size:1.4rem;
+        font-family:'Cinzel Decorative';
+        color:var(--gold-lt);
+        }
+
+        .mini-label{
+        font-size:.65rem;
+        letter-spacing:.15em;
+        color:var(--gold-pl);
+        text-transform:uppercase;
+        }
       `}</style>
 
       {/* HERO */}
@@ -474,11 +635,118 @@ export default function WeddingInvitation() {
           Cordially invite your esteemed presence and blessing with family on the auspicious occasion of this joyous union.
         </p>
 
-        <div className="date-badge">
+        {/* <div className="date-badge">
           <div className="date-day">Sunday</div>
           <div className="date-num">16</div>
           <div className="date-my">August · 2026</div>
           <div className="date-hj">3 Rabi&#x2bc; al-Awwal 1448 AH</div>
+        </div> removed date part*/}
+        <div className="event-grid">
+
+        <div className="event-card">
+          <div className="event-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+
+          <div className="event-label">DATE</div>
+
+          <div className="event-value">
+            Sunday, 16 August 2026
+          </div>
+
+          <div className="event-sub">
+            3 Rabi' al-Awwal 1448 AH
+          </div>
+
+          <button
+            className="event-action"
+            onClick={addToGoogleCalendar}
+          >
+            + Add to Calendar
+          </button>
+        </div>
+
+        <div className="event-card">
+          <div className="event-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+
+          <div className="event-label">TIME</div>
+
+          <div className="event-value">
+            11:00 AM – 3:00 PM
+          </div>
+
+          <div className="event-sub">
+            Indian Standard Time
+          </div>
+        </div>
+
+        <div className="event-card">
+          <div className="event-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+
+          <div className="event-label">VENUE</div>
+
+          <div className="event-value">
+            Everest Convention Centre
+          </div>
+
+          <div className="event-sub">
+            Karikkad, Thrissur, Kerala
+          </div>
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Everest+Convention+Centre,+Karikkad,+Thrissur"
+            target="_blank"
+            rel="noreferrer"
+            className="event-action"
+          >
+          <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2">
+
+          <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+
+          </svg>
+
+          &nbsp;
+       Get Directions
+          </a>
+        </div>
+
+      </div>
+
+        <div className="mini-countdown">
+
+        {[
+        {num:countdown.days,label:"Days"},
+        {num:countdown.hours,label:"Hours"},
+        {num:countdown.minutes,label:"Minutes"},
+        {num:countdown.seconds,label:"Seconds"}
+        ].map(item=>(
+        <div className="mini-card" key={item.label}>
+        <div className="mini-num">{String(item.num).padStart(2,'0')}</div>
+        <div className="mini-label">{item.label}</div>
+        </div>
+        ))}
+
         </div>
 
         <div className="scroll-cue">
@@ -491,135 +759,85 @@ export default function WeddingInvitation() {
 
       <MughalBorder />
 
-      {/* COUNTDOWN */}
-      <section className="sec cd-sec">
-        <div className="sec-inner">
-          <PetalDecor />
-          <OrnamentDivider />
-          <h2 className="sec-title rev">Counting Down to the Celebration</h2>
-          <p className="sec-sub rev d1">INSHA ALLAH · The Blessed Day Draws Near</p>
-          <div className="cd-grid rev d2">
-            {[
-              { num: countdown.days, label: 'Days' },
-              { num: countdown.hours, label: 'Hours' },
-              { num: countdown.minutes, label: 'Minutes' },
-              { num: countdown.seconds, label: 'Seconds' },
-            ].map(({ num, label }) => (
-              <div key={label} className="cd-card">
-                <span className="cd-num">{String(num).padStart(2, '0')}</span>
-                <span className="cd-lbl">{label}</span>
-              </div>
-            ))}
-          </div>
-          <OrnamentDivider />
-        </div>
-      </section>
-
-      <MughalBorder flip />
-
-      {/* EVENT DETAILS */}
-      <section className="sec dt-sec">
-        <div className="sec-inner">
-          <PetalDecor />
-          <OrnamentDivider />
-          <h2 className="sec-title rev">Event Details</h2>
-          <p className="sec-sub rev d1">Everything you need to know</p>
-          <div className="dt-grid">
-            {[
-              {
-                ico: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>,
-                lbl: 'Date', val: 'Sunday, 16 August 2026', sub: "3 Rabi' al-Awwal 1448 AH",
-              },
-              {
-                ico: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
-                lbl: 'Time', val: '11:00 AM — 3:00 PM', sub: 'Indian Standard Time (IST)',
-              },
-              {
-                ico: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
-                lbl: 'Venue', val: 'Everest Convention Centre', sub: 'Karikkad, Thrissur, Kerala',
-              },
-              {
-                ico: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
-                lbl: 'Occasion', val: 'Wedding Reception', sub: 'Family & loved ones warmly welcomed',
-              },
-            ].map(({ ico, lbl, val, sub }, i) => (
-              <div key={lbl} className={`dt-card rev d${(i % 3) + 1}`}>
-                <div className="dt-ico">{ico}</div>
-                <div className="dt-lbl">{lbl}</div>
-                <div className="dt-val">{val}</div>
-                {sub && <div className="dt-sub">{sub}</div>}
-              </div>
-            ))}
-          </div>
-          <OrnamentDivider />
-        </div>
-      </section>
-
-      <MughalBorder />
-
-      {/* FAMILIES */}
+      
       <section className="sec fam-sec">
-        <div className="sec-inner">
-          <PetalDecor />
-          <OrnamentDivider />
-          <h2 className="sec-title rev">Two Families, One Celebration</h2>
-          <p className="sec-sub rev d1">United by love and the grace of Allah</p>
-          <div className="fam-grid rev d2">
-            <div className="fam-card">
-              <div className="fam-role">Groom's Family</div>
-              <div className="fam-name">Mr. Abdulsalam &amp; Mrs. Salma</div>
-              <div className="fam-addr">Thayyullyill House<br/>Akkikavu, Thrissur</div>
-              <div className="fam-phone">+91 97455 59994<br/>+91 95392 70658</div>
-            </div>
-            <div className="fam-div">
-              <OrnamentDivider />
-              <div className="and-t">&amp;</div>
-              <OrnamentDivider />
-            </div>
-            <div className="fam-card">
-              <div className="fam-role">Bride's Family</div>
-              <div className="fam-name">Mr. Latheef K. &amp; Mrs. Arifa Kammukutty</div>
-              <div className="fam-addr">Kottekatil House<br/>Nammarapadam, Nemmara<br/>Palakkad District</div>
-            </div>
-          </div>
-          <OrnamentDivider />
-        </div>
+
+      <div className="sec-inner">
+
+      <PetalDecor/>
+
+      <OrnamentDivider/>
+
+      <h2 className="sec-title">
+      With the Blessings of
+      </h2>
+
+      <p className="sec-sub">
+      Our beloved parents warmly invite you to celebrate this joyful occasion.
+      </p>
+
+      <div className="parents-grid">
+
+      <div className="parent-card">
+
+      <div className="fam-role">
+      GROOM'S PARENTS
+      </div>
+
+      <div className="fam-name">
+      Mr. Abdulsalam
+      </div>
+
+      <div className="fam-name">
+      Mrs. Salma
+      </div>
+
+      <div className="fam-addr">
+      Thayyullyill House<br/>
+      Akkikavu, Thrissur
+      </div>
+
+      </div>
+
+      <div className="parent-card">
+
+      <div className="fam-role">
+      BRIDE'S PARENTS
+      </div>
+
+      <div className="fam-name">
+      Mr. Latheef K.
+      </div>
+
+      <div className="fam-name">
+      Mrs. Arifa
+      </div>
+
+      <div className="fam-addr">
+      Kottekatil House<br/>
+      Nemmara, Palakkad
+      </div>
+
+      </div>
+
+      </div>
+
+     
+
+      <OrnamentDivider/>
+
+      </div>
+
       </section>
-
-      <MughalBorder flip />
-
-      {/* ADD TO CALENDAR */}
-      <section className="sec cal-sec">
-        <div className="sec-inner">
-          <PetalDecor />
-          <OrnamentDivider />
-          <h2 className="sec-title rev">Save the Date</h2>
-          <p className="sec-sub rev d1">Add this blessed occasion to your calendar</p>
-          <div className="cal-btns rev d2">
-            <button className="cal-btn cal-p" onClick={addToGoogleCalendar}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="4" width="18" height="18" rx="2"/>
-                <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-                <line x1="12" y1="15" x2="12" y2="19"/><line x1="10" y1="17" x2="14" y2="17"/>
-              </svg>
-              Add to Google Calendar
-            </button>            
-          </div>
-          <OrnamentDivider />
-        </div>
-      </section>
-
-      <MughalBorder />
+      
+      
       {/* NEW RSVP LINK SECTION PLACED DIRECTLY AFTER CALENDAR */}
       <section className="sec rsvp-sec">
         <div className="sec-inner">
-          <PetalDecor />
-          <OrnamentDivider />
-          <h2 className="sec-title rev">Kindly Respond</h2>
+          <h2 className="sec-title">Kindly Respond</h2>
           <p className="sec-sub rev d1">Please let us know your availability for the wedding reception</p>
 
-          <div className="rsvp-card rev d2">
+          <div className="rsvp-card">
             {status === 'success' ? (
               attending === 'Yes' ? (
                 <div className="rsvp-msg animate-fade">
@@ -708,41 +926,8 @@ export default function WeddingInvitation() {
         </div>
       </section>
 
-      <MughalBorder flip />
       
-
-      {/* MAP */}
-      <section className="sec map-sec">
-        <div className="sec-inner">
-          <PetalDecor />
-          <OrnamentDivider />
-          <h2 className="sec-title rev">Find Your Way</h2>
-          <p className="sec-sub rev d1">Everest Convention Centre, Karikkad, Thrissur, Kerala</p>
-          <div className="map-frame rev d2">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6!2d76.19!3d10.56!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7f1b2a2b2b2b3%3A0x0!2sEverest+Convention+Centre%2C+Karikkad%2C+Thrissur%2C+Kerala!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Everest Convention Centre, Karikkad, Thrissur"
-            />
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Everest+Convention+Centre,+Karikkad,+Thrissur,+Kerala,+India"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="dir-btn"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
-              </svg>
-              Get Directions
-            </a>
-          </div>
-          <OrnamentDivider />
-        </div>
-      </section>
+      
 
       {/* FOOTER */}
       <footer className="footer-sec">
