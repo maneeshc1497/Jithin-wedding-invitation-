@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState, useRef } from 'react'
+import OpeningAnimation from '../components/OpeningAnimation'
 
 export const Route = createFileRoute('/')({
   component: WeddingInvitation,
@@ -137,6 +138,7 @@ function downloadICS() {
 }
 
 export default function WeddingInvitation() {
+  const [showIntro, setShowIntro] = useState(true);
   const weddingDate = new Date('2026-08-16T11:00:00+05:30')
   const countdown = useCountdown(weddingDate)
   // Form states
@@ -181,6 +183,13 @@ export default function WeddingInvitation() {
       alert('Submission failed. Please check your internet connection and try again.')
     }
   }
+  if (showIntro) {
+  return (
+    <OpeningAnimation
+      onFinish={() => setShowIntro(false)}
+    />
+  );
+}
   return (
     <>
       <style>{`
